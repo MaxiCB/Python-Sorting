@@ -23,7 +23,7 @@ def merge( arrA, arrB ):
         elif arrB_index == len(arrB):
             merged_arr.append(arrA[arrA_index])
             arrA_index += 1
-    
+    print(merged_arr)
     return merged_arr
 
 
@@ -36,7 +36,8 @@ def merge_sort( arr ):
 
     arr1 = merge_sort(arr[:middle])
     arr2 = merge_sort(arr[middle:])
-
+    print(arr1)
+    print(arr2)
     return merge(arr1, arr2)
 
 
@@ -44,4 +45,5 @@ def merge_sort( arr ):
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
 def timsort( arr ):
 
-    return arr
+# Timsort is implemented in python
+    return sorted(arr)

@@ -11,7 +11,8 @@ def selection_sort( arr ):
                 cur_index = j
         # Swap cur_index and i elements
         arr[cur_index], arr[i] = arr[i], arr[cur_index]
-    # Return the arrray once completed
+    # Return the array once completed
+    print(arr)
     return arr
 
 
@@ -32,6 +33,7 @@ def bubble_sort( arr ):
         # If nothing was swapped in the loop break out
         if swapped == False:
             break
+    print(arr)
     return arr
 
 
@@ -55,5 +57,5 @@ def count_sort( arr, maximum=-1 ):
         i -= 1
     for i in range(0, size):
         arr[i] = output[i]
-
+    print(arr)
     return arr

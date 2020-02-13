@@ -1,6 +1,6 @@
 import unittest
 import random
-from recursive_sorting import *
+from src.recursive_sorting.recursive_sorting import *
 
 class RecursiveSortingTests(unittest.TestCase):
     def test_merge_sort(self):
@@ -19,6 +19,8 @@ class RecursiveSortingTests(unittest.TestCase):
         self.assertEqual(merge_sort(arr3), [2])
         self.assertEqual(merge_sort(arr4), [0,1,2,3,4,5])
         self.assertEqual(merge_sort(arr5), sorted(arr5))
+
+        self.assertEqual(timsort(arr5), sorted(arr5))
 
 
 if __name__ == '__main__':
