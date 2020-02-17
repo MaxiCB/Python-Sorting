@@ -1,5 +1,5 @@
 # TO-DO: Implement the Selection Sort function below 
-def selection_sort( arr ):
+def selection_sort(arr):
     # Loop through n-1 elements
     for i in range(0, len(arr) - 1):
         cur_index = i
@@ -11,6 +11,7 @@ def selection_sort( arr ):
                 cur_index = j
         # Swap cur_index and i elements
         arr[cur_index], arr[i] = arr[i], arr[cur_index]
+        print(cur_index)
     # Return the array once completed
     print(arr)
     return arr

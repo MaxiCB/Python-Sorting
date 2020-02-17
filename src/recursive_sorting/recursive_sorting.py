@@ -28,7 +28,7 @@ def merge( arrA, arrB ):
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
-def merge_sort( arr ):
+def merge_sort(arr):
     if len(arr) <= 1:
         return arr
 
@@ -43,7 +43,7 @@ def merge_sort( arr ):
 
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
-def timsort( arr ):
+def timsort(arr):
 
 # Timsort is implemented in python
     return sorted(arr)

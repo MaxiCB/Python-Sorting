@@ -5,16 +5,12 @@ def linear_search(arr, target):
 
     for i in range(min_val, max_val):
         if len(arr) == 0:
-            print('fails')
             return -1
         if arr[i] == target:
-            print('found target', i)
             return i
         elif arr[i] > target:
-            print('i > target, reducing max')
             max_val = i
         elif arr[i] < target:
-            print('i < max, raising min')
             min_val = i
 
     # Return not found
