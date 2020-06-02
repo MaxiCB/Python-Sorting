@@ -4,6 +4,7 @@
 # Overal complexity: 0(nlog(n))
 
 # TO-DO: complete the helper function below to merge 2 sorted arrays
+
 def merge( arrA, arrB ):
     merged_arr = []
 
@@ -23,7 +24,6 @@ def merge( arrA, arrB ):
         elif arrB_index == len(arrB):
             merged_arr.append(arrA[arrA_index])
             arrA_index += 1
-    print(merged_arr)
     return merged_arr
 
 
@@ -36,9 +36,59 @@ def merge_sort(arr):
 
     arr1 = merge_sort(arr[:middle])
     arr2 = merge_sort(arr[middle:])
-    print(arr1)
-    print(arr2)
     return merge(arr1, arr2)
+
+    # implement an in-place merge sort algorithm
+    # Need pointers for each segement
+    # Compare the elements at the pointes current position
+    # If p1 < p2 - p1 is correct. Increase p1
+    # Else move p2
+    # All elements right of p2 will be shifted right by one
+    # Increase all pointers by 1
+
+    # Seg1 is arr[1..mid]
+    # Seg2 is arr[mid+1..r]
+def merge_in_place(arr, start, mid, end):
+    # Start point for second segment
+    seg2 = mid + 1;  
+    # Check if the middle and elem to the right are equal
+    # If elem is less or equal then return
+    if (arr[mid] <= arr[seg2]): 
+        return;
+    # While start < mid && seg2 less than end
+    while (start <= mid and seg2 <= end):
+        # if start is less than seg2 iterate start pointer
+        if (arr[start] <= arr[seg2]): 
+            start += 1;
+        else: 
+            # Copy current seg2 value
+            value = arr[seg2];
+            # Copy the index
+            index = seg2; 
+            # While the index is not start
+            while (index != start): 
+                # Shift all elems
+                arr[index] = arr[index - 1]; 
+                index -= 1; 
+            # Set start element to previously saved value
+            arr[start] = value; 
+            # Update all pointers
+            start += 1; 
+            mid += 1; 
+            seg2 += 1;
+
+
+def merge_sort_in_place(arr, l, r): 
+    if (l < r):
+        # set middle
+        m = l + (r - l) // 2;
+        # Sort both segments of the array
+        merge_sort_in_place(arr, l, m); 
+        merge_sort_in_place(arr, m + 1, r); 
+        # Merge both segments together
+        merge_in_place(arr, l, m, r);
+    # Return the sorted array
+    return arr
 
 
 # STRETCH: implement the Timsort function below
